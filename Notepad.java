@@ -20,7 +20,7 @@ public class Notepad extends JFrame implements ActionListener, WindowListener {
 		JMenu jmhelp = new JMenu("Help");
 		
 		con.setLayout(new BorderLayout());
-
+		//trying to add scrollbar
 		JScrollPane sbrText = new JScrollPane(jta);
 		sbrText.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		sbrText.setVisible(true);
@@ -68,12 +68,12 @@ public class Notepad extends JFrame implements ActionListener, WindowListener {
 		JFileChooser jfc=new JFileChooser();
 		
 		if(e.getActionCommand().equals("New")){ 
-
+			//new
 			this.setTitle("Untitled.txt - Notepad");
 			jta.setText("");
 			fnameContainer=null;
 		}else if(e.getActionCommand().equals("Open")){
-
+			//open
 			int ret=jfc.showDialog(null,"Open");
 			
 			if(ret == JFileChooser.APPROVE_OPTION)
@@ -87,7 +87,7 @@ public class Notepad extends JFrame implements ActionListener, WindowListener {
 			}
 			
 		}else if(e.getActionCommand().equals("Save")){
-
+			//save
 			if(fnameContainer != null){
 				jfc.setCurrentDirectory(fnameContainer);		
 				jfc.setSelectedFile(fnameContainer);
@@ -111,27 +111,27 @@ public class Notepad extends JFrame implements ActionListener, WindowListener {
 			}
 			
 		}else if(e.getActionCommand().equals("Exit")){
-
+			//exit
 			Exiting();
 		}else if(e.getActionCommand().equals("Copy")){
-
+			//copy
 			jta.copy();
 		}else if(e.getActionCommand().equals("Paste")){
-
+			//paste
 			jta.paste();
 		}else if(e.getActionCommand().equals("About Notepad")){ 
-
-			JOptionPane.showMessageDialog(this,"Created by: Ferdinand Silva (http://ferdinandsilva.com)","Notepad",JOptionPane.INFORMATION_MESSAGE);
+			//about
+			JOptionPane.showMessageDialog(this,"Created by: Sanjay Dookhoo","Notepad",JOptionPane.INFORMATION_MESSAGE);
 		}else if(e.getActionCommand().equals("Cut")){
 			jta.cut();
 		}
 	}
 	
 	public void OpenFile(String fname) throws IOException {	
-
+		//open file code here
 		BufferedReader d=new BufferedReader(new InputStreamReader(new FileInputStream(fname)));
 		String l;
-
+		//clear the textbox
 		jta.setText("");
 	
 		setCursor(new Cursor(Cursor.WAIT_CURSOR));
